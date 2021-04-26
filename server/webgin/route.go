@@ -46,7 +46,7 @@ func initRoute() {
 
 	GinRoute.MaxMultipartMemory = 100 << 20 //100M
 
-	base := new(acp.BaseController)
+	base := new(api.BaseController)
 	link := new(api.LinkController)
 
 	GinRoute.GET("/s/:code", link.Redirect)
