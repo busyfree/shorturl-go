@@ -1,6 +1,6 @@
 module github.com/busyfree/shorturl-go
 
-go 1.15
+go 1.16.3
 
 require (
 	github.com/HdrHistogram/hdrhistogram-go v1.0.1 // indirect
