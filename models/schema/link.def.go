@@ -18,10 +18,10 @@ type Link struct {
 	Id        int64              `xorm:"id BIGINT(20) notnull pk" db:"id" bson:"-" json:"bn_id,omitempty"`
 	IdStr     string             `xorm:"-" db:"-" bson:"-" json:"id,omitempty"`
 	ID_       primitive.ObjectID `xorm:"-" db:"-" bson:"_id,omitempty" json:"_id,omitempty"`
-	Key       string             `xorm:"code CHAR(10) notnull default ''" db:"-" bson:"k,omitempty" json:"k"`
+	Key       string             `xorm:"code CHAR(10) notnull default '' index" db:"-" bson:"k,omitempty" json:"k"`
 	Url       string             `xorm:"url VARCHAR(255) notnull default ''" db:"-" bson:"u,omitempty" json:"u"`
-	Hash      string             `xorm:"hash CHAR(32) notnull default ''" db:"-" bson:"h,omitempty" json:"h"`
-	Project   string             `xorm:"project CHAR(20) notnull default ''" db:"-" bson:"p,omitempty" json:"p"`
+	Hash      string             `xorm:"hash CHAR(32) notnull default '' index" db:"-" bson:"h,omitempty" json:"h"`
+	Project   string             `xorm:"project CHAR(20) notnull default '' index" db:"-" bson:"p,omitempty" json:"p"`
 	IP        string             `xorm:"ip CHAR(49) notnull default ''" db:"-" bson:"ip,omitempty" json:"ip"`
 	CreatedAt int64              `xorm:"created_at BIGINT(20) notnull default 0" db:"created_at" bson:"c,omitempty" json:"c,omitempty"`
 	DeletedAt int64              `xorm:"deleted_at BIGINT(20) notnull default 0" db:"deleted_at" bson:"-" json:"deleted,omitempty"`

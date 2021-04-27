@@ -123,6 +123,7 @@ func (dao *LinkDao) FindOneLinkByCodeFromMongoDB(ctx context.Context) (err error
 }
 
 func (dao *LinkDao) SaveOneLinkToMongoDB(ctx context.Context) (err error) {
+	dao.BeforeInsert()
 	c := db.GetMongoDB(ctx, ctxkit.GetProjectDBName(ctx))
 	timeoutCtx, cancel := context.WithTimeout(ctx, 10*time.Second)
 	defer cancel()
@@ -133,6 +134,19 @@ func (dao *LinkDao) SaveOneLinkToMongoDB(ctx context.Context) (err error) {
 	if i, ok := id.InsertedID.(primitive.ObjectID); ok {
 		dao.ID_ = i
 	}
+	return
+}
+
+func (dao *LinkDao) CreateMongoDBIndex(ctx context.Context) (name []string, err error) {
+	c := db.GetMongoDB(ctx, ctxkit.GetProjectDBName(ctx))
+	timeoutCtx, cancel := context.WithTimeout(ctx, 10*time.Second)
+	defer cancel()
+	models := []mongo.IndexModel{
+		{Keys: bson.D{{"k", 1}}},
+		{Keys: bson.D{{"h", 1}}},
+		{Keys: bson.D{{"p", 1}}},
+	}
+	name, err = c.Collection(dao.CollectionName(ctx)).Indexes().CreateMany(timeoutCtx, models)
 	return
 }
 

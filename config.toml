@@ -29,6 +29,8 @@ OUTER_API_TIMEOUT = 60
 # 值可选, mysql,mongodb
 DATA_STORAGE = "mongodb"
 
+DB_DEFAULT_AUTO_CREATE_TABLE=true
+
 [SENTINEL_RES_QPS]
 
 
@@ -40,7 +42,6 @@ DATA_STORAGE = "mongodb"
 # 时区问题参考 https://www.jianshu.com/p/3f7fc9093db4
 dsn = "root:root@tcp(127.0.0.1:3306)/shorturl_go?parseTime=true&loc=Local&charset=utf8mb4&allowNativePasswords=true"
 prefix = ""
-auto_create = true
 max_open_conns = 0
 max_idle_conns = 0
 max_life=0

@@ -37,9 +37,9 @@ func initRoute() {
 		sessionDB = "0"
 	}
 
-	GinRoute.LoadHTMLGlob("views/***/**/*")
+	//GinRoute.LoadHTMLGlob("views/***/**/*")
 	fs := filepath.Join(conf.GetConfigPath(), "public", "static")
-	GinRoute.StaticFS("/web/static", http.Dir(fs))
+	GinRoute.StaticFS("/static", http.Dir(fs))
 	GinRoute.Use(gin.Recovery())
 	middlewares.FilterMiddleware()
 	GinRoute.Use(middlewares.Logger())
