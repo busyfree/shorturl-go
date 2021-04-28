@@ -32,18 +32,18 @@ func (p *Link) TableName(ctx context.Context) string {
 	config := conf.GetStrMapStr("DB_" + ctxkit.GetProjectDBName(ctx))
 	prefix := config["prefix"]
 	if len(prefix) > 0 {
-		return prefix + "_links"
+		return prefix + "_urls"
 	}
-	return "links"
+	return "urls"
 }
 
 func (p *Link) CollectionName(ctx context.Context) string {
 	config := conf.GetStrMapStr("MONGODB_" + ctxkit.GetProjectDBName(ctx))
 	prefix := config["prefix"]
 	if len(prefix) > 0 {
-		return prefix + "_links"
+		return prefix + "_urls"
 	}
-	return "links"
+	return "urls"
 }
 
 func (p *Link) ToMongoDocument() bson.D {
