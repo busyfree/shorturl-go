@@ -3,6 +3,7 @@ package acp
 import (
 	"database/sql"
 	"net/http"
+	"net/url"
 
 	"github.com/busyfree/shorturl-go/service"
 	"github.com/busyfree/shorturl-go/util/crypto/md5"
@@ -53,12 +54,23 @@ func (c *LinkController) Save(ctx *gin.Context) {
 		ctx.JSON(http.StatusOK, gin.H{"status": 0, "message": err.Error()})
 		return
 	}
+	link, _ := url.QueryUnescape(form.Link)
+	form.Link = link
+	uri, err := url.Parse(form.Link)
+	if err != nil {
+		ctx.JSON(http.StatusOK, gin.H{"status": 0, "message": err.Error()})
+		return
+	}
+	if uri.Scheme != "http" && uri.Scheme != "https" {
+		ctx.JSON(http.StatusOK, gin.H{"status": 0, "message": "url scheme error, should be http or https."})
+		return
+	}
 	linkService := service.NewLinkService()
 	linkService.Dao.Url = form.Link
 	if len(form.Project) == 0 {
 		linkService.Dao.Project = "default"
 	}
-	err := linkService.FindOneLink(ctx)
+	err = linkService.FindOneLink(ctx)
 	if err != nil {
 		if err != sql.ErrNoRows && err != mongo.ErrNoDocuments {
 			ctx.JSON(http.StatusOK, gin.H{"status": 0, "message": err.Error()})
