@@ -1,21 +1,21 @@
 {
   "name": "srv_mp_honda_accord",
   "version": "1.0.0",
-  "description": "![build](https://github.com/TreedomCN/srv_mp_honda_accord/workflows/build/badge.svg?branch=master)",
+  "description": "![build](https://github.com/busyfree/shorturl-go/workflows/build/badge.svg?branch=main)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TreedomCN/srv_mp_honda_accord.git"
+    "url": "git+https://github.com/busyfree/shorturl-go.git"
   },
   "author": "",
   "license": "No License",
   "bugs": {
-    "url": "https://github.com/TreedomCN/srv_mp_honda_accord/issues"
+    "url": "https://github.com/busyfree/shorturl-go/issues"
   },
-  "homepage": "https://github.com/TreedomCN/srv_mp_honda_accord/blob/master/README.md",
+  "homepage": "https://github.com/busyfree/shorturl-go/blob/master/README.md",
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",

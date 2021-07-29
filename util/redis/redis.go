@@ -10,9 +10,9 @@ import (
 	"github.com/busyfree/shorturl-go/util/log"
 	"github.com/busyfree/shorturl-go/util/metrics"
 
-	"github.com/bilibili/net/pool"
-	"github.com/bilibili/redis"
-	opentracing "github.com/opentracing/opentracing-go"
+	"github.com/go-kiss/net/pool"
+	"github.com/go-kiss/redis"
+	"github.com/opentracing/opentracing-go"
 	"github.com/opentracing/opentracing-go/ext"
 )
 

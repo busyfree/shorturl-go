@@ -13,9 +13,9 @@ import (
 	"github.com/busyfree/shorturl-go/util/log"
 	"github.com/busyfree/shorturl-go/util/metrics"
 
-	"github.com/bilibili/memcache"
-	"github.com/bilibili/net/pool"
-	opentracing "github.com/opentracing/opentracing-go"
+	"github.com/go-kiss/memcache"
+	"github.com/go-kiss/net/pool"
+	"github.com/opentracing/opentracing-go"
 	"github.com/opentracing/opentracing-go/ext"
 )
 

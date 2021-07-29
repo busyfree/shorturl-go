@@ -24,7 +24,7 @@ import (
 	"github.com/busyfree/shorturl-go/util/metrics"
 	"github.com/busyfree/shorturl-go/util/trace"
 
-	opentracing "github.com/opentracing/opentracing-go"
+	"github.com/opentracing/opentracing-go"
 	"github.com/opentracing/opentracing-go/ext"
 )
 
@@ -186,7 +186,7 @@ func DoHttpReq(ctx context.Context, urlStr string, params interface{}, options .
 		}
 	}
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
-	req.Header.Set("User-Agent", "Treedom/1.0.0 Go/1.0.0")
+	req.Header.Set("User-Agent", "shorturl_go/1.0.0 Go/1.0.0")
 	reqResp, err = c.Do(ctx, req)
 	if err != nil {
 		return
@@ -253,7 +253,7 @@ func DoHttpFormReq(ctx context.Context, urlStr string, params interface{}, optio
 		}
 	}
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
-	req.Header.Set("User-Agent", "Treedom/1.0.0 Go/1.0.0")
+	req.Header.Set("User-Agent", "shorturl_go/1.0.0 Go/1.0.0")
 	reqResp, err = c.Do(ctx, req)
 	if err != nil {
 		return
@@ -320,7 +320,7 @@ func DoHttpJsonReq(ctx context.Context, urlStr string, params interface{}, optio
 		}
 	}
 	req.Header.Set("Content-Type", "application/json")
-	req.Header.Set("User-Agent", "Treedom/1.0.0 Go/1.0.0")
+	req.Header.Set("User-Agent", "shorturl_go/1.0.0 Go/1.0.0")
 	reqResp, err = c.Do(ctx, req)
 	if err != nil {
 		return
@@ -368,7 +368,7 @@ func DoHttpFormUploadReq(ctx context.Context, urlStr, filedName, filename string
 		return
 	}
 	req.Header.Set("Content-Type", writer.FormDataContentType())
-	req.Header.Set("User-Agent", "Treedom/1.0.0 Go/1.0.0")
+	req.Header.Set("User-Agent", "shorturl_go/1.0.0 Go/1.0.0")
 	reqResp, err = c.Do(ctx, req)
 	if err != nil {
 		return
