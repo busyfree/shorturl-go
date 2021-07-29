@@ -1,5 +1,5 @@
 {
-  "name": "srv_mp_honda_accord",
+  "name": "shorturl-go",
   "version": "1.0.0",
   "description": "![build](https://github.com/busyfree/shorturl-go/workflows/build/badge.svg?branch=main)",
   "main": "index.js",
