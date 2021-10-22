@@ -5,9 +5,10 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/busyfree/shorturl-go/service"
 	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/mongo"
+
+	"github.com/busyfree/shorturl-go/service"
 )
 
 type LinkController struct{}
@@ -50,7 +51,6 @@ func (c *LinkController) Redirect(ctx *gin.Context) {
 		ctx.String(http.StatusOK, errUnescape.Error())
 		return
 	}
-	//@todo write some analysis data to nsq or other async queue
-	ctx.Redirect(http.StatusFound, target)
+	ctx.Redirect(http.StatusMovedPermanently, target)
 	return
 }
